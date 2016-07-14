@@ -1,0 +1,56 @@
+<%= form_for [:admin, @book] do |f| %>
+  <table class="table">
+    <div class="col-md-5">
+      <% if @book.picture.present? %>
+        <%= image_tag(@book.picture,
+          size: Settings.admin.book_large_edit) %>
+      <% else %>
+        <%= image_tag(Settings.books.default_book,
+          size: Settings.admin.book_large_edit) %>
+      <% end %>
+      <span class="picture">
+        <%= f.label :picture %><br>
+        <%= f.file_field :picture, accept:
+          "image/jpeg,image/gif,image/png" %>
+      </span>
+    </div>
+    <div class="col-md-7">
+      <%= render "shared/error_message", object: @book %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :author %>
+        <%= f.text_field :author, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :pages %>
+        <%= f.text_field :pages, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :publish_date %>
+        <br>
+        <%= f.date_select :publish_date, order: [:month, :day, :year] %>
+      </div>
+      <div class="form-group">
+        <%= f.label :category %><br>
+        <%= f.collection_select :category_id, @categories, :id, :name,
+          class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :isbn %>
+        <%= f.text_field :isbn, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit :Submit, class: "btn btn-success" %>
+        <%= link_to t("views.requests.back"), admin_book_path,
+          class: "btn btn-primary" %>
+      </div>
+    </div>
+  </table>
+<% end %>

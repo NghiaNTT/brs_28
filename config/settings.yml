@@ -4,6 +4,7 @@ users:
   default_avatar: "default.png"
 admin:
   book_size: "100x100"
+  book_large_edit: "400x490"
 per_page: 5
 books:
   per_page: 8

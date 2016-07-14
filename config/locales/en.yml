@@ -106,6 +106,8 @@ en:
           delete: "Delete"
           create_book: "Create book"
           all_books: "All books"
+          edit_success: "Edit success!"
+          edit: "Edit"
         new:
           title: "Add new book"
           submit_button: "Add new Book"
@@ -185,6 +187,7 @@ en:
           danger:
             invalid_category: "Invalid category"
             delete_category: "Exit books, can't delete"
+            edit_fail: "Edit book was fail!"
           alert:
             search_category: "Categories not found"
         index:
