@@ -1,0 +1,21 @@
+<div class = "reading_books" >
+  <p><span> <%= t("views.users.reading")%> </span></p>
+  <div id="list_reading_book">
+    <% @reading_books.each do |reading_book| %>
+      <li class="list-group-item list-group-item-info">
+        <% if reading_book.picture.present? %>
+          <%= link_to image_tag(reading_book.picture,
+            size: Settings.books.book_size), reading_book %>
+        <% else %>
+          <%= link_to image_tag(Settings.books.default_book,
+            size: Settings.books.book_size), admin_books_path %>
+        <% end %>
+        <%= link_to reading_book.title, reading_book %>
+        <%= "start read" %>
+        <%= reading_book.updated_at %>
+        <br/>
+      </li>
+    <% end %>
+  </div>
+  <%= paginate @reading_books %>
+</div>

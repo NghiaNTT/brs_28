@@ -39,3 +39,8 @@ Category.create! name: "Novel"
   BookRequest.create! title: "Hoang tu be",
     author: "Antoine de Saint-Exupery", user_id: 2
   end
+
+UserBook.create! user_id: 1,
+    book_id: 9,
+    is_favorite: true,
+    status: 0

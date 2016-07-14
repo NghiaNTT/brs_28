@@ -17,8 +17,9 @@ class Admin::BooksController < ApplicationController
   end
 
   def index
-    @books = Kaminari.paginate_array(Book.order(created_at: :desc)).
-      page(params[:page]).per Settings.books.per_page
+    @search = Book.ransack params[:q]
+    @books = @search.result.order(updated_at: :desc).page(params[:page])
+      .per Settings.per_page
   end
 
   private

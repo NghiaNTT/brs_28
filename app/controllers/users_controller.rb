@@ -6,6 +6,13 @@ class UsersController < ApplicationController
   end
 
   def show
+    if @user.nil?
+      @user = current_user
+    end
+    @favorite_books = Book.where(id: UserBook.favorite(@user).pluck(:book_id))
+      .page(params[:page])
+    @reading_books = Book.where(id: UserBook.reading(@user).pluck(:book_id))
+      .page(params[:page])
   end
 
   private

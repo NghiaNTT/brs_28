@@ -6,7 +6,7 @@ class CreateBookRequests < ActiveRecord::Migration
       t.string :author
       t.string :isbn
       t.boolean :is_accepted
-
+9
       t.timestamps null: false
     end
   end

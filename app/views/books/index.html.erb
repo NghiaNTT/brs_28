@@ -1,17 +1,11 @@
 <% provide :title, t("views.books.all_books") %>
 <h1><%= t "views.books.all_books" %></h1>
 <div class="col-md-12">
-  <%= search_form_for @search do |f| %>
-    <table class="table">
-      <tr>
-        <td><%= f.label :title %></td>
-        <td><%= f.text_field :title_cont, class: "form-control" %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :author %></td>
-        <td><%= f.text_field :author_cont, class: "form-control" %></td>
-      </tr>
-    </table>
+  <%= search_form_for @search, class: "form-inline" do |f| %>
+    <%= f.text_field :title_cont, class: "form-control",
+      placeholder: t("views.admin.books.index.placeholder.title") %>
+    <%= f.text_field :author_cont, class: "form-control",
+      placeholder: t("views.admin.books.index.placeholder.author") %>
     <%= f.submit t("views.admin.user.search"), class: "btn btn-info" %>
   <% end %>
 </div>

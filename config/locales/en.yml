@@ -106,6 +106,9 @@ en:
           delete: "Delete"
           create_book: "Create book"
           all_books: "All books"
+          placeholder:
+            title: "Title contain..."
+            author: "Author contain..."
         new:
           title: "Add new book"
           submit_button: "Add new Book"
@@ -118,6 +121,10 @@ en:
       gravatar: "Gravatar"
       name: "Name"
       email: "Email"
+      favorite: "Favorite books"
+      reading: "Reading history"
+      follow: "Follow"
+      unfollow: "Unfollow"
     books:
       all_books: "All books"
       author: "Author: "
